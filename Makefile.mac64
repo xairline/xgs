@@ -60,5 +60,12 @@ install: $(TARGET)
 	mkdir -p "$(PLUGDIR)/64"
 	cp -p $(TARGET) "$(PLUGDIR)/64"
 
+dep:
+	curl -L https://github.com/sparker256/imgui4xp/archive/refs/heads/master.zip -o imgui4xp.zip
+	unzip imgui4xp.zip 
+	mkdir -p imgui4xp
+	cp -r imgui4xp-master/src imgui4xp
+	rm -rf imgui4xp.zip imgui4xp-master
+
 clean:
 	rm -f $(TARGET) $(TARGET)_arm $(TARGET)_x86 $(OBJDIR)/*.o*

@@ -43,3 +43,7 @@ OBJ/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Dependency directories #
+##########################
+imgui4xp/
