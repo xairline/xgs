@@ -1,5 +1,6 @@
 SDK=../SDK
 OBJDIR=./OBJ
+PLUGDIR=~/X-Plane-12/Resources/plugins/xgs
 
 LIBACFUTILS_VERSION="hotbso subset"
 TARGET=mac.xpl
@@ -54,6 +55,10 @@ $(TARGET)_x86: $(OBJECTS_x86) $(LACFU_OBJECTS_x86)
 
 $(TARGET): $(TARGET)_arm $(TARGET)_x86
 	lipo -create -output $@ $(TARGET)_arm $(TARGET)_x86
+
+install: $(TARGET)
+	mkdir -p "$(PLUGDIR)/64"
+	cp -p $(TARGET) "$(PLUGDIR)/64"
 
 clean:
 	rm -f $(TARGET) $(TARGET)_arm $(TARGET)_x86 $(OBJDIR)/*.o*
